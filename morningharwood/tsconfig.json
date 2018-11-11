@@ -16,6 +16,9 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@morningharwood/firebase": [
+        "libs/firebase/src/index.ts"
+      ]
     }
   },
   "exclude": [
