@@ -12,6 +12,14 @@
       "tags": [
         "firebase"
       ]
+    },
+    "morningharwood": {
+      "tags": [
+        "morningharwood"
+      ]
+    },
+    "morningharwood-e2e": {
+      "tags": []
     }
   }
 }
