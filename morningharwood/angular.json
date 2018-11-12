@@ -124,6 +124,24 @@
             "tsConfig": "apps/morningharwood/tsconfig.spec.json",
             "setupFile": "apps/morningharwood/src/test-setup.ts"
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/apps/morningharwood-server",
+            "main": "apps/morningharwood/src/main.server.ts",
+            "tsConfig": "apps/morningharwood/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/morningharwood/src/environments/environment.ts",
+                  "with": "apps/morningharwood/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
         }
       }
     },
