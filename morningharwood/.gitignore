@@ -4,6 +4,11 @@
 /dist
 /tmp
 /out-tsc
+/coverage
+speed-measure-plugin.json
+chrome-profiler-events.json
+/apps/morningharwood/src/assets/ssl
+
 
 # dependencies
 /node_modules

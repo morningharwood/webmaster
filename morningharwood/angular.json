@@ -52,7 +52,8 @@
             "tsConfig": "apps/morningharwood/tsconfig.app.json",
             "assets": [
               "apps/morningharwood/src/favicon.ico",
-              "apps/morningharwood/src/assets"
+              "apps/morningharwood/src/assets",
+              "apps/morningharwood/src/manifest.json"
             ],
             "styles": [
               "apps/morningharwood/src/styles.scss"
@@ -76,6 +77,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "serviceWorker": true,
               "budgets": [
                 {
                   "type": "initial",
