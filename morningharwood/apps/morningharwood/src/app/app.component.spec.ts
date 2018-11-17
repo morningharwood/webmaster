@@ -25,7 +25,6 @@ describe('AppComponent', () => {
   it(`should have as title 'morningharwood'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    // @ts-ignore
     expect(app.title)
       .toEqual('morningharwood');
   });
@@ -34,7 +33,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    // @ts-ignore
+
     expect(compiled.querySelector('h1').textContent)
       .toContain(
         'Welcome to morningharwood!',
