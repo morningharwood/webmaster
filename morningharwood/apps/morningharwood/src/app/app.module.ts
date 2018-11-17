@@ -17,6 +17,7 @@ import { RouterEffects } from './+router/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ApplicationRoutes } from './+router/module';
 import { config } from './+router/config';
+import { FirebaseModule } from '../../../../libs/firebase/src';
 
 
 @NgModule({
@@ -26,9 +27,10 @@ import { config } from './+router/config';
     BrowserTransferStateModule,
     NxModule.forRoot(),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    RouterModule.forRoot(config, { initialNavigation: 'enabled' }),
     ApplicationRoutes,
+    RouterModule.forRoot(config, { initialNavigation: 'enabled' }),
     StoreModule.forRoot(reducers),
+    FirebaseModule,
     EffectsModule.forRoot([ RouterEffects ]),
     !environment.production
     ? StoreDevtoolsModule.instrument()

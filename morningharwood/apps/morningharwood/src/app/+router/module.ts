@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MenuModule } from '../menu/module';
+import { WorkModule } from '../work/module';
 // import { ProfileModule } from '../profile/module';
 // import { LabModule } from '../lab/module';
 // import { WorkModule } from '../work/module';
@@ -10,6 +11,7 @@ import { MenuModule } from '../menu/module';
 @NgModule({
   imports: [
     MenuModule,
+    WorkModule,
     // ProfileModule,
     // LabModule,
     // WorkModule,
