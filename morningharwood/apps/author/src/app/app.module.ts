@@ -19,12 +19,22 @@ import {
 } from '@angular/material';
 import { SelectCollectionModule } from './select-collection/select-collection.module';
 import { RepeatTypeComponent } from './repeat-section';
+import { FormlyFieldFile } from './formly-field-file';
+import { FileValueAccessor } from './file-value-accessor';
+import { DropZoneDirective } from './drop-zone/drop-zone.directive';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileSizePipe } from './file-upload/file-size.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RepeatTypeComponent,
+    FileValueAccessor,
+    FormlyFieldFile,
+    DropZoneDirective,
+    FileUploadComponent,
+    FileSizePipe,
   ],
   imports: [
     CommonModule,
@@ -39,6 +49,11 @@ import { RepeatTypeComponent } from './repeat-section';
         {
           name: 'repeat',
           component: RepeatTypeComponent,
+        },
+        {
+          name: 'file',
+          component: FormlyFieldFile,
+          wrappers: [ 'form-field' ],
         },
       ],
     }),

@@ -18,6 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ApplicationRoutes } from './+router/module';
 import { config } from './+router/config';
 import { FirebaseModule } from '../../../../libs/firebase/src';
+import { ImgModule } from '../../../../libs/img/src';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { FirebaseModule } from '../../../../libs/firebase/src';
     RouterModule.forRoot(config, { initialNavigation: 'enabled' }),
     StoreModule.forRoot(reducers),
     FirebaseModule,
+    ImgModule,
     EffectsModule.forRoot([ RouterEffects ]),
     !environment.production
     ? StoreDevtoolsModule.instrument()

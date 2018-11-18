@@ -18,6 +18,9 @@
     "paths": {
       "@morningharwood/firebase": [
         "libs/firebase/src/index.ts"
+      ],
+      "@morningharwood/img": [
+        "libs/img/src/index.ts"
       ]
     }
   },

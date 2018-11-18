@@ -11,6 +11,7 @@ chrome-profiler-events.json
 
 # dependencies
 /node_modules
+/firebase/node_modules
 
 # IDEs and editors
 /.idea

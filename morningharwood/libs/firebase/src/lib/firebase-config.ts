@@ -1,10 +1,10 @@
 export const MorningHarwood = {
-  apiKey: 'AIzaSyDHNXmnZnAlrffyYn3LR7tvR65vsI_Y7sk',
-  authDomain: 'morningharwood-author.firebaseapp.com',
-  databaseURL: 'https://morningharwood-author.firebaseio.com',
-  projectId: 'morningharwood-author',
-  storageBucket: 'morningharwood-author.appspot.com',
-  messagingSenderId: '1066837751664'
+  apiKey: 'AIzaSyDMNHtmgsu2dv9MPmUA_EOrt7vS00PW12M',
+  authDomain: 'mh-client.firebaseapp.com',
+  databaseURL: 'https://mh-client.firebaseio.com',
+  projectId: 'mh-client',
+  storageBucket: 'mh-client.appspot.com',
+  messagingSenderId: '985472354315',
 };
 
 export class FirebaseConfigs {
