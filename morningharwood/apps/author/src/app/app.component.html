@@ -1,0 +1,28 @@
+<router-outlet></router-outlet>
+<div class="card-header">
+  <morningharwood-select-collection
+    *ngIf="routes && components"
+    [dropDownOptions]="[routes, components]"
+    [keyName]="['route', 'component']"
+    [label]="['All Routes', 'All Components']"
+    [valueProp]="['docKey', 'docKey']"
+    [labelProp]="['name', 'name']"
+    (selection)="loadAllComponentSchemas($event)">
+  </morningharwood-select-collection>
+</div>
+<div class="grid">
+  <form [formGroup]="f.schema.form" (ngSubmit)="submit(f)"
+        *ngFor="let f of block$ | async">
+    <div class="card">
+      <formly-form [model]="f.schema.model" [fields]="f.schema.fields"
+                   [options]="f.schema.options"
+                   [form]="f.schema.form">
+        <button type="submit" mat-stroked-button=""
+                [disabled]="!f.schema.form.valid">Update Block
+        </button>
+        <a class="delete-btn" mat-button color="accent" (click)="delete(f)">Delete</a>
+      </formly-form>
+    </div>
+  </form>
+</div>
+

@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <formly-form [model]="model" [fields]="fields" [options]="options"
+               [form]="form">
+    <button type="submit" mat-stroked-button=""
+            [disabled]="!form.valid">Add Block
+    </button>
+  </formly-form>
+</form>
+<pre>{{model | json}}</pre>

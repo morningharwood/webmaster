@@ -1,0 +1,39 @@
+.card-header {
+  background-color: #f7f7f7;
+
+}
+
+morningharwood-select-collection {
+  display: block;
+  margin: 0 auto;
+  padding: 2em 1em;
+  width: 640px;
+}
+
+.grid {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 1200px;
+}
+
+form {
+  padding: 1em;
+}
+
+.card {
+  background: #f7f7f7;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px #ccc;
+  display: block;
+  margin: 1em auto;
+  padding: 2em 1em;
+  width: 480px;
+}
+
+.delete-btn {
+  margin-left: 1em;
+}
