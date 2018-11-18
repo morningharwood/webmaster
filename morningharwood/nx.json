@@ -20,6 +20,12 @@
     },
     "morningharwood-e2e": {
       "tags": []
+    },
+    "morningharwood-playground": {
+      "tags": []
+    },
+    "morningharwood-playground-e2e": {
+      "tags": []
     }
   }
 }

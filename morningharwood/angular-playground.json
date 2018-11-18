@@ -1,0 +1,6 @@
+{
+  "sourceRoot": "./apps/morningharwood/src",
+  "angularCli": {
+    "appName": "morningharwood-playground"
+  }
+}
