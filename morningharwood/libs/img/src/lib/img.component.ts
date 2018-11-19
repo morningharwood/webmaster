@@ -19,6 +19,15 @@ export class ImgComponent implements OnInit {
         key: 'file',
         type: 'file',
       },
+      {
+        key: 'fileUrl',
+        type: 'input',
+        templateOptions: {
+          label: 'fileUrl',
+          placeholder: 'Upload an image and copy file URL',
+          required: true,
+        },
+      },
     ];
   }
 

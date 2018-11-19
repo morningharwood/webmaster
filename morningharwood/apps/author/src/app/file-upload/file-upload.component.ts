@@ -4,10 +4,7 @@ import {
   AngularFireStorage,
   AngularFireUploadTask,
 } from 'angularfire2/storage';
-import {
-  finalize,
-  tap,
-} from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 
@@ -63,16 +60,16 @@ export class FileUploadComponent {
     this.percentage = this.task.percentageChanges();
     this.snapshot = this.task.snapshotChanges()
                         .pipe(
-                          tap(snap => {
-                            if (snap.bytesTransferred === snap.totalBytes) {
-                              // Update firestore on completion
-                              this.db.collection('photos')
-                                  .add({
-                                    path,
-                                    size: snap.totalBytes,
-                                  });
-                            }
-                          }),
+                          // tap(snap => {
+                          //   if (snap.bytesTransferred === snap.totalBytes) {
+                          //     // Update firestore on completion
+                          //     this.db.collection('photos')
+                          //         .add({
+                          //           path,
+                          //           size: snap.totalBytes,
+                          //         });
+                          //   }
+                          // }),
                           finalize(() => {
                             this.downloadURL = ref.getDownloadURL();
                             console.log(this.downloadURL);
@@ -80,6 +77,10 @@ export class FileUploadComponent {
                         );
   }
 
+  decodeURIComponent(uri) {
+    return decodeURIComponent(uri)
+      .split('?')[ 0 ].split('/o/')[ 1 ];
+  }
 
   // Determines if the upload task is active
   isActive(snapshot) {

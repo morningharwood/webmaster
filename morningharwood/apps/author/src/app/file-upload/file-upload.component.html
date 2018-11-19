@@ -43,6 +43,7 @@
     <h3>Results!</h3>
     <img [src]="url"><br>
     <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
+    <p>URL: {{this.decodeURIComponent(url)}}</p>
   </div>
   <hr>
 
