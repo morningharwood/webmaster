@@ -1,3 +1,15 @@
+<div *ngIf="(snapshot | async) as snap" class="parent-controls"
+     class="parent-controls">
+  <div class="child-controls">
+    <div class="button-buffer">
+      <div *ngIf=" snap.bytesTransferred !==  snap.totalBytes">
+        <button (click)="task.cancel()" [disabled]="!isActive(snap)"
+                color="primary" mat-raised-button>Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 <div (dropped)="startUpload($event)"
      (hovered)="toggleHover($event)"
      [class.hovering]="isHovering"
@@ -10,16 +22,9 @@
 
       <input (change)="startUpload($event.target.files)" class="file-input"
              type="file">
-
-
-      <span class="file-cta">
-            <span class="file-icon">
-              <i class="fa fa-upload"></i>
-            </span>
-            <span class="file-label">
-              or choose a file…
-            </span>
-          </span>
+      <span class="file-inner-label">
+        Drag or Click to add image.
+      </span>
     </label>
   </div>
 </div>
@@ -30,33 +35,31 @@
             [value]="pct"
             max="100">
   </progress>
-
-  {{ pct | number }}%
+  <p class="results">{{ pct | number }}%</p>
 
 </div>
 
 <div *ngIf="(snapshot | async) as snap">
-  {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
-
-
-  <div *ngIf="downloadURL | async as url">
-    <h3>Results!</h3>
-    <img [src]="url"><br>
-    <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
-    <p>URL: {{this.decodeURIComponent(url)}}</p>
+  <p class="results">
+    {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
+  </p>
+  <div class="button-buffer">
+    <div *ngIf=" snap.bytesTransferred !==  snap.totalBytes">
+      <button (click)="task.pause()" mat-button
+              [disabled]="!isActive(snap)">Pause
+      </button>
+      <button (click)="task.cancel()" mat-button
+              [disabled]="!isActive(snap)">Cancel
+      </button>
+      <button (click)="task.resume()" mat-button
+              [disabled]="!(snap?.state === 'paused')">Resume
+      </button>
+    </div>
   </div>
-  <hr>
 
-
-  <button (click)="task.pause()" class="button is-warning"
-          [disabled]="!isActive(snap)">Pause
-  </button>
-  <button (click)="task.cancel()" class="button is-danger"
-          [disabled]="!isActive(snap)">Cancel
-  </button>
-  <button (click)="task.resume()" class="button is-info"
-          [disabled]="!(snap?.state === 'paused')">Resume
-  </button>
-
-
+  <div class="image-preview" *ngIf="downloadURL | async as url">
+    <img [src]="url">
+    <p>{{this.decodeURIComponent(url)}}</p>
+    <a mat-button [href]="url" target="_blank" rel="noopener">Download</a>
+  </div>
 </div>

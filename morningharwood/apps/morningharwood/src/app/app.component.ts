@@ -41,7 +41,11 @@ export class AppComponent {
       mergeMap(val => {
           const calcUrl = () => val === '/'
                                 ? 'root'
-                                : val;
+                                : val.slice(1);
+          console.log(calcUrl());
+          this.db.collection('blocks')
+              .valueChanges()
+              .subscribe(console.log);
           return this.db.collection('blocks', ref => ref.where('route', '==', calcUrl()))
                      .valueChanges();
         },
@@ -53,8 +57,8 @@ export class AppComponent {
                           acc[ val.id ] = val;
                           return acc;
                         }, {});
-      console.log(this.items);
       this.app.tick();
+      console.log(items);
     });
   }
 }

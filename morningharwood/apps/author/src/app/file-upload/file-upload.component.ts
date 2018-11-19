@@ -36,7 +36,6 @@ export class FileUploadComponent {
     this.isHovering = event;
   }
 
-
   startUpload(event: FileList) {
     // The File object
     const file = event.item(0);
@@ -48,7 +47,7 @@ export class FileUploadComponent {
     }
 
     // The storage path
-    const path = `images/${new Date().getTime()}_${file.name}`;
+    const path = `images/${file.name}`;
 
     // Totally optional metadata
     const customMetadata = { app: 'My AngularFire-powered PWA!' };
@@ -60,16 +59,6 @@ export class FileUploadComponent {
     this.percentage = this.task.percentageChanges();
     this.snapshot = this.task.snapshotChanges()
                         .pipe(
-                          // tap(snap => {
-                          //   if (snap.bytesTransferred === snap.totalBytes) {
-                          //     // Update firestore on completion
-                          //     this.db.collection('photos')
-                          //         .add({
-                          //           path,
-                          //           size: snap.totalBytes,
-                          //         });
-                          //   }
-                          // }),
                           finalize(() => {
                             this.downloadURL = ref.getDownloadURL();
                             console.log(this.downloadURL);
@@ -79,7 +68,7 @@ export class FileUploadComponent {
 
   decodeURIComponent(uri) {
     return decodeURIComponent(uri)
-      .split('?')[ 0 ].split('/o/')[ 1 ];
+      .split('?')[ 0 ].split('/o/images/')[ 1 ];
   }
 
   // Determines if the upload task is active
